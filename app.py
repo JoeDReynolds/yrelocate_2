@@ -1,15 +1,19 @@
 import os
 from flask import Flask, jsonify, render_template, url_for
-from models import yRelocateDB
 import json
 from bson import json_util
 from bson.json_util import dumps
+from flask_pymongo import PyMongo
 
-
+from models import retrive_population_data, insert_population_data
 
 ##############################################################################
 
 app = Flask(__name__)
+
+app.config["MONGO_URI"] = "mongodb://localhost:27017/yrelocate_db"
+mongo = PyMongo(app)
+
 
 ##### Define routes #####################################################################
 @app.route("/")
@@ -20,8 +24,7 @@ def index():
 def population():
     print("---------------population-----------------")
     # Get the Data from MongoDc
-    db = yRelocateDB()
-    projects = db.retrive_population_data()
+    projects = retrive_population_data(mongo)
     json_projects = []
     for project in projects:
         json_projects.append(project)
@@ -33,3 +36,6 @@ def population():
 ################################################################################
 if __name__ == '__main__':
     app.run(debug=True)    
+
+
+# insert_population_data(mongo)
