@@ -1,5 +1,5 @@
 """
-yRelocate: This modules parces the csv file and insert it in MongoDb
+yRelocate: This modules parses the csv file and insert it in MongoDb
 
 """
 # from .app import mongo
