@@ -1,0 +1,41 @@
+Launch instructions:
+
+  On local machine:
+    =>  Create the application.
+    =>  Create the virtual environment, the virtual environment will be
+        in the project directory.
+
+        python -m venv venv
+
+    =>  Activate the environment:
+
+        venv/Scripts/activate
+
+    => Install flask into the venv environment:
+
+        $  pip install flask
+
+    => complete the "application" package:
+
+      Example contents:
+
+        $ mkdir append
+        $ touch __init__.py
+
+        fill this file with the needed definitions:
+
+            from flask import Flask
+
+            app = Flask(__name__)
+
+            from app import routes
+
+    =>  Tell flask which file to start for this application
+
+      $ export FLASK_APP=appsrc.py
+
+    => run the application:
+
+      $ flask run
+
+    
