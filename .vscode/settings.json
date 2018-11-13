@@ -1,6 +1,7 @@
 {
     "python.pythonPath": "venv\\Scripts\\python.exe",
     "terminal.integrated.env.windows": {
-        "FLASK_APP": "yRelocate.py"
+        "FLASK_APP": "yRelocate.py",
+        "FLASK_ENV": "development",
     }
 }

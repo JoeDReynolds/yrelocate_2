@@ -3,9 +3,9 @@ import json
 from bson import json_util
 # import flask   # import Flask, render_template
 # # from bson.json_util import dumps
-# from flask_pymongo import PyMongo
 
-from app import app
+# from app import app, retrieve_population_data
+import app
 
 # ########################################################################
 
@@ -22,7 +22,7 @@ def index():
 def population():
     print("---------------population-----------------")
     # Get the Data from mongodb
-    projects = retrieve_population_data(app.mongo)
+    projects = retrieve_population_data()
     json_projects = []
     for project in projects:
         json_projects.append(project)
