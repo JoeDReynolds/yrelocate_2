@@ -5,7 +5,7 @@ from bson import json_util
 # # from bson.json_util import dumps
 
 # from app import app, retrieve_population_data
-import app
+from app import app  # , retrieve_population_data
 
 # ########################################################################
 
@@ -37,3 +37,5 @@ if __name__ == '__main__':
     app.run(debug=True)
 
 # insert_population_data(mongo)
+
+from app import retrieve_population_data
