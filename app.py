@@ -5,13 +5,13 @@ from bson import json_util
 from bson.json_util import dumps
 from flask_pymongo import PyMongo
 
-from models import retrive_population_data, insert_population_data
+from models import retrive_population_data, insert_population_data, insert_home_rental_data, insert_school_data
 
 ##############################################################################
 
 app = Flask(__name__)
 
-app.config["MONGO_URI"] = "mongodb://localhost:27017/yrelocate_db"
+app.config["MONGO_URI"] = "mongodb://joe_reynolds:op3nupd4n@ds155903.mlab.com:55903/heroku_j29mjxk2"
 mongo = PyMongo(app)
 
 
@@ -35,7 +35,16 @@ def population():
 ################################################################################
 ################################################################################
 if __name__ == '__main__':
-    app.run(debug=True)    
+    app.run(debug=True)  
 
 
 # insert_population_data(mongo)
+#insert_home_rental_data(mongo)
+# while (True):
+#     if(insert_home_rental_data(mongo)):
+#         break; 
+#     else:
+#         print("Trying again")
+# insert_home_rental_data(mongo)
+
+# insert_school_data("2018 Austin - High.csv", mongo.db.highschool)
