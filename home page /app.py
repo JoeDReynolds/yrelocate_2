@@ -41,7 +41,7 @@ def housing():
     for item in housedata:
         json_housing.append(item)
     json_housing = json.dumps( json_housing, default=json_util.default)
-    return  json_housing  
+    return  jsonify(json_housing)  
 
 
 @app.route("/elementary") 
@@ -53,7 +53,7 @@ def school():
     for school in schooldata:
         json_school.append(school)
     json_school = json.dumps( json_school, default=json_util.default)
-    return  json_school 
+    return  jsonify(json_school) 
 
 
 

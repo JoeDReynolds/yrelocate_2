@@ -83,6 +83,7 @@ function getData(dataset) {
 // jsut check we need to write our code for that
 
 function optionchenged(info) {
+  console.log(info)
   switch (info) {
     case "Buy":
       console.log("hi")
@@ -91,7 +92,7 @@ function optionchenged(info) {
       function successHandle(result){
         console.log(result)
       }
-      function errorHandle(error){s
+      function errorHandle(error){
         console.log(error)
       }
     break;
