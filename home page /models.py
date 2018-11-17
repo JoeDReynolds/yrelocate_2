@@ -51,40 +51,54 @@ def insert_population_data(mongo):
             #     self.db_population.update({"place_id": records["place_id"]}, records, upsert=True)
     except Exception as e: print(e)
 
-def retrieve_population_data(mongo):
-    """If found return latest all records.
-    Returns nothing
-    -------
-    """
-    #sort = [('_id', -1)]
-    # db_population = mongo['population']
-    conn = 'mongodb://localhost:27017'
-    client = pymongo.MongoClient(conn)
-    db = client.yrelocate_db
-    result = db.population.find({}, {'_id': False})
-    result = list(result)
+def retrive_population_data(mongo):
+   ''' retriveds population data from mongodb and returns the result
+       input: takes mongodb client
+       return: mongodb cursor'''
 
-    return result
+   #sort = [('_id', -1)]
+   result = mongo.db.population.find({}, {'_id': False})
+   #print (result)
+   if result.count():
+       return result
+
+   return None
 
 
 # insert_population_data()
 # cursor =list(db.retrive_population_data())
 # for i in cursor:
 #     print(i['coordinates'])
-def retrieve_Photos_data(mongo):
-    """If found return latest all records.
-    Returns nothing
-    -------
-    """
-    #sort = [('_id', -1)]
-    # db_population = mongo['population']
-    conn = 'mongodb://localhost:27017'
-    client = pymongo.MongoClient(conn)
-    db = client.yrelocate_db
-    result = db.Photos.find({}, {'_id': False})
-    result = list(result)
+def retrive_housing_data(mongo):
+   ''' retriveds population data from mongodb and returns the result
+       input: takes mongodb client
+       return: mongodb cursor'''
 
-    return result
+   #sort = [('_id', -1)]
+   result = mongo.db.housing.find({}, {'_id': False})
+   #print (result)
+   if result.count():
+       return result
+
+   return None
+
+
+#    retrive shool data for in mongo database . 
+
+def retrive_elementary_data(mongo):
+   ''' retriveds population data from mongodb and returns the result
+       input: takes mongodb client
+       return: mongodb cursor'''
+
+   #sort = [('_id', -1)]
+   result = mongo.db.elementary.find({}, {'_id': False})
+   #print (result)
+   if result.count():
+       return result
+
+   return None
+
+
 
 
 

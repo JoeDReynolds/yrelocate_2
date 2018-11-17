@@ -5,7 +5,7 @@ from bson import json_util
 from bson.json_util import dumps
 from flask_pymongo import PyMongo
 
-from models import retrieve_population_data, insert_population_data,retrieve_Photos_data
+from models import retrive_population_data, insert_population_data,retrive_housing_data,retrive_elementary_data
 
 ##############################################################################
 
@@ -24,7 +24,7 @@ def index():
 def population():
     print("---------------population-----------------")
     # Get the Data from MongoDc
-    projects = retrieve_population_data(mongo)
+    projects = retrive_population_data(mongo)
     json_projects = []
     for project in projects:
         json_projects.append(project)
@@ -32,16 +32,31 @@ def population():
     return json_projects   
 #  retrive best Photos for citys
 
-@app.route("/Photos") 
-def Photos():
-    print("---------------Photos-----------------")
+@app.route("/housing") 
+def housing():
+    print("---------------housing-----------------")
     # Get the Data from MongoDc
-    photo = retrieve_Photos_data(mongo)
-    json_Photos = []
-    for item in photo:
-        json_Photos.append(item)
-    json_Photos = json.dumps(json_Photos, default=json_util.default)
-    return json_Photos  
+    housedata = retrive_housing_data(mongo)
+    json_housing = []
+    for item in housedata:
+        json_housing.append(item)
+    json_housing = json.dumps( json_housing, default=json_util.default)
+    return  json_housing  
+
+
+@app.route("/elementary") 
+def school():
+    print("---------------elementary-----------------")
+    # Get the Data from MongoDc
+    schooldata = retrive_elementary_data(mongo)
+    json_school = []
+    for school in schooldata:
+        json_school.append(school)
+    json_school = json.dumps( json_school, default=json_util.default)
+    return  json_school 
+
+
+
 
 ################################################################################
 ################################################################################

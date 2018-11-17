@@ -86,7 +86,7 @@ function optionchenged(info) {
   switch (info) {
     case "Buy":
       console.log("hi")
-      d3.json("/population").then(successHandle, errorHandle);
+      d3.json("/housing").then(successHandle);
 
       function successHandle(result){
         console.log(result)
@@ -97,7 +97,7 @@ function optionchenged(info) {
     break;
 
     case "Rent":
-      d3.json("/population").then(successHandle, errorHandle);
+      d3.json("/elementary").then(successHandle, errorHandle);
       function successHandle(result){
         console.log(result)
       }
@@ -109,13 +109,25 @@ function optionchenged(info) {
 }
 
 // ******************
-// check box function 
+// check box function for school 
+var schoolbox = document.getElementById("school");
 function handlecheck (){
-  d3.json("/population").then(successHandle, errorHandle);
-      function successHandle(result){
-        console.log(result)
+
+  if(schoolbox.checked==true){
+    alert("you chossed school!");
+    d3.json("/population ").then(successHandle, errorHandle);
+    function successHandle(result){
+      console.log(result)
+    }
+    function errorHandle(error){
+      console.log(error)
+    }
+
       }
-      function errorHandle(error){
-        console.log(error)
+else {
+     alert(" School is UnChecked!");
       }
+
 }
+
+
