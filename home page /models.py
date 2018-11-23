@@ -50,7 +50,7 @@ def insert_population_data(mongo):
                 print("updating")
             #     self.db_population.update({"place_id": records["place_id"]}, records, upsert=True)
     except Exception as e: print(e)
-
+# ######################### population data #####################################
 def retrive_population_data(mongo):
    ''' retriveds population data from mongodb and returns the result
        input: takes mongodb client
@@ -63,28 +63,22 @@ def retrive_population_data(mongo):
        return result
 
    return None
-
-
-# insert_population_data()
-# cursor =list(db.retrive_population_data())
-# for i in cursor:
-#     print(i['coordinates'])
+# ################### housing data ######################
 def retrive_housing_data(mongo):
    ''' retriveds population data from mongodb and returns the result
        input: takes mongodb client
        return: mongodb cursor'''
 
    #sort = [('_id', -1)]
-   result = mongo.db.housing.find({}, {'_id': False})
-   #print (result)
+   result = mongo.db.housing.find({ "ZipCode":  {"$gt": "78610","$lt" :"78759" } }, {'_id': False})
    if result.count():
        return result
 
    return None
 
-
-#    retrive shool data for in mongo database . 
-
+# ############################################ school data #######################
+#     . 
+# retrive_elementary school_data
 def retrive_elementary_data(mongo):
    ''' retriveds population data from mongodb and returns the result
        input: takes mongodb client
@@ -95,10 +89,34 @@ def retrive_elementary_data(mongo):
    #print (result)
    if result.count():
        return result
-
    return None
 
+#  high school data 
 
+def retrive_highschool_data(mongo):
+   ''' retriveds population data from mongodb and returns the result
+       input: takes mongodb client
+       return: mongodb cursor'''
+
+   #sort = [('_id', -1)]
+   result = mongo.db.highschool.find({}, {'_id': False})
+   #print (result)
+   if result.count():
+       return result
+   return None
+
+#  middle school data 
+def retrive_middleschool_data(mongo):
+   ''' retriveds population data from mongodb and returns the result
+       input: takes mongodb client
+       return: mongodb cursor'''
+
+   #sort = [('_id', -1)]
+   result = mongo.db.middleschool.find({}, {'_id': False})
+   #print (result)
+   if result.count():
+       return result
+   return None
 
 
 
