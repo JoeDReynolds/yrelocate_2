@@ -32,6 +32,18 @@ def population():
     return json_projects    
 
 
+# @app.route("/housing")
+# def housing():
+        
+#     print("---------------housing-----------------")
+#      # Get the Data from MongoDc
+#     housedata = retrive_housing_data(mongo)
+#     json_housing = []
+#     for item in housedata:        
+#         json_housing.append(item)
+#     json_housing = json.dumps( json_housing, default=json_util.default)
+#     return  jsonify(json_housing)
+
 ################################################################################
 ################################################################################
 if __name__ == '__main__':
