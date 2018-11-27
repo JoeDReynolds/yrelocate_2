@@ -1,1 +1,1 @@
-web: gunicorn yRelocate:app
+web: gunicorn app:app
