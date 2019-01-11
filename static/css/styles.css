@@ -44,3 +44,84 @@
 #map{
     height: 900px;
 }
+
+.modal-content{
+max-width: 2000px;
+}
+
+.modal-body {
+  position: relative;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 1rem;
+  opacity: .7;
+}
+
+.modal-backdrop {
+  background-color: transparent !important;
+}
+
+.bar {
+  fill: #5f4b12;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+.axis {
+  font: 10px sans-serif;
+  font-weight: 900;
+}
+
+.modal-title {
+  text-align: middle;
+  vertical-align: middle;
+  font-size: x-large;
+  font-stretch: extra-expanded;
+  font-style: oblique;
+  color: #d8172a;
+}
+
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+  background: transparent;
+  color: #333;
+  font-size: large;
+  font-family: fantasy;
+}
+
+.leaflet-popup-content-wrapper {
+    padding: .1px;
+    height: auto;
+    width: auto;
+}
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+  background: transparent;
+  color: #333;
+  font-size: large;
+  font-family: fantasy;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+} 
+
+#each-place-button {
+  margin: 20px;
+}
+.dropdown{
+  margin: 20px;
+}
+

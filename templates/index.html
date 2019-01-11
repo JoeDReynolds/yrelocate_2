@@ -5,15 +5,34 @@
       <div class="col col-lg-2 col-md-2 col-sm-12">
           <article class="description-content">     
          </article>
-         <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#leadFormModal">Get Quote</button>
+         <button type="button" id = "each-place-button" class="btn btn-warning" data-toggle="modal" data-target="#loadFormModal">Show Population</button>
+
+         <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            US
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+          </div>
+        </div>
        </div>
       <div class="col col-lg-10, col-md-10 col-sm-12">
-            <div id="map"></div>
+            <div id="map" ></div>
+            <div id='menu'>
+              <input id='basic' type='radio' name='rtoggle' value='basic' checked='checked'>
+              <label for='basic'>basic</label>
+              <input id='streets' type='radio' name='rtoggle' value='streets'>
+              <label for='streets'>streets</label>
+              <input id='bright' type='radio' name='rtoggle' value='bright'>
+              <label for='bright'>bright</label>
+              <input id='light' type='radio' name='rtoggle' value='light'>
+              <label for='light'>light</label>
+              <input id='dark' type='radio' name='rtoggle' value='dark'>
+              <label for='dark'>dark</label>
+              <input id='satellite' type='radio' name='rtoggle' value='satellite'>
+              <label for='satellite'>satellite</label>
+          </div>
       </div>
   </div>
 </div>
-
-
-
-
 {% endblock %}
