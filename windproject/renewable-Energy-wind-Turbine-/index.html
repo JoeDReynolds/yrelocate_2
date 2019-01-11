@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+  </head>
+
+  <body>
+    <br>
+    <br> 
+    <br>
+    <br>
+    <br>
+
+    <div class="container">
+            <div class="row"> 
+              <div class="col-md-4">
+                <aside class="filters" >
+                  <div class="panel panel-default">
+                    <div class="panel-heading" style="color: rgb(77, 75, 75) ">Wind Power Calculatoin </div>
+                    <div class="panel-body" >
+                      <form>
+                        <div class="form-group">
+                          <ul class="list-group" id="filters">
+                            <li class="filter list-group-item">
+                              <label style="font-size: 15px">Choose your city</label>
+                              <select class="form-control" id="searchby" onchange= "getData(this.value)"  > 
+                                <option value="" selected disabled>Select City</option>
+                                <!-- <option value="Austin">Austin</option>
+                                <option value="Dallas">Dallas</option>
+                                <option value="Houston">Houston</option> -->
+                              </select>
+                            </li>
+                            <li class="filter list-group-item">
+                                        <p> <b>Wind Speed (m/s) : <span id="demo"></span></b></p>
+                                        <input type="range"  id="myRange" min="1" max="30" value="25" step="0.1" style="width:100%" > 
+                                  
+                                  <li class="filter list-group-item">
+                                    <p> <b>Power Coefficient (0-0.59) : <span id="cpndemo"></span></b></p>
+                                        <input type="range"  id="cprange" min="0" max="0.59" value="0.36" step="0.01" style="width:100%" > 
+                                  </li> 
+                                  <li class="filter list-group-item">
+                                    <p> <b> Mechanical Efficiency (0-100%): <span id="Edemo"></span>%</b></p>
+                                        <input type="range"  id="Erange" min="0" max="100" value="50" step="1" style="width:100%" > 
+                                  <!-- </li>       -->
+                                  <div class="table-responsive">          
+                                      <table class="table" id="Table1">
+                                        <thead>
+                                          <tr>
+                                            <th>Rotor Diameter (m)</th>
+                                            <th>Air Density (kg/m3)</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody id="tbody">
+                                          <tr>
+                                            <td><form ><input type="text" name="Diamotor " id="diameter"  value="67.1" onchange= "inputchenged(this.value)"></form></td>
+                                            <td><form ><input type="text" name="Diamotor " id="Aden"  value="1.184" onchange= "densitychenged(this.value)"></form></td>
+                                          </tr>
+                                        </tbody>
+                                      </div>
+                                    </li>
+                            </li>
+                                   
+
+<!-- out put Turbine power  part  -->
+                             
+
+                                    <li class="filter list-group-item">
+                                        <label style="font-size: 15px" >Turbine Output</label>
+                                        <!-- wind power out put  -->
+                                        <div class="table-responsive">          
+                                          <table class="table">
+                                            <tbody>
+                                              <tr>
+                                                <td> <h5> Turbin Power (KW) </h5></td>
+                                                <td><form ><input type="text" name="Turbinpower " id="TPower"  value=""></form></td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                          </div>
+                                          <!-- annaul power out out  -->
+                                          <div class="table-responsive">          
+                                            <table class="table">
+                                              <tbody>
+                                                <tr>
+                                                  <td> <h5> Annual Power(MWh) </h5></td>
+                                                  <td><form ><input type="text" name="Annualpower " id="ATpower"  value=""></form></td>
+
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                            </div>
+                                            <!-- number of houses  -->
+                                          <div class="table-responsive">          
+                                            <table class="table">
+                                              <tbody>
+                                                <tr>
+                                                  <td> <h5> Number of Houses </h5></td>
+                                                  <td><form ><input type="text" name="numberhouse " id="houses"  value=""></form></td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                            </div>
+                                            <span class="glyphicon glyphicon-home" id="house1" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-home" id="house2"aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-home" id="house3"aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-home" id="house4"aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-home" id="house5"aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-home" id="house6"aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-home" id="house7" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-home" id="house8" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-home" id="house9" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-home" id="house10" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-home" id="house11"aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-home" id="house12" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-home" id="house13" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-home" id="house14" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-home" id="house15" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-home" id="house16"aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-home" id="house17" aria-hidden="true"></span>
+                                           
+                                          </li>
+                            </li>
+                          </ul>
+                        </div>
+                        
+                        
+                      </form>
+                    </div>
+                  </div>
+                </aside>
+              </div>
+            </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+    <script type="text/javascript" src="app.js">
+
+    </script>
+  </body>
+</html>
